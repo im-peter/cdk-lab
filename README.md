@@ -1,6 +1,6 @@
 # AWS CDK test project
 
-![Build status](https://github.com//im-peter/cdk-lab/workflows/Ci/badge.svg "GitHub Actions Build Status")
+![Build status](https://github.com/im-peter/cdk-lab/actions/workflows/main.yml/badge.svg "GitHub Actions Build Status")
 
 This is a blank project for TypeScript development with CDK.
 
