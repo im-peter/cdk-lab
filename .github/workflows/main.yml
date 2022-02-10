@@ -31,14 +31,12 @@ jobs:
             ${{ runner.OS }}-
 
       - name: install (prod dependencies), build and test
-        uses: actions/setup-node@v1
         run: |
           npm ci
           npm run build
           npm run test
 
       - name: Deploy Stack
-        uses: actions/setup-node@v1
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
