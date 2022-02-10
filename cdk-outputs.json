@@ -1,0 +1,6 @@
+{
+  "CdkStack": {
+    "apiUrl": "https://f9zt9nvfd9.execute-api.eu-west-1.amazonaws.com/dev/",
+    "cdkgatewaytsEndpointA912E5D7": "https://f9zt9nvfd9.execute-api.eu-west-1.amazonaws.com/dev/"
+  }
+}
