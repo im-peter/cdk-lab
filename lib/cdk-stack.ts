@@ -29,7 +29,6 @@ export class CdkStack extends Stack {
       eventBus: bus,
 
       eventPattern: {
-        detailType: ['Object State Change'],
         account: [Stack.of(this).account],
       }
     })

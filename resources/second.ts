@@ -10,7 +10,7 @@ const client = new EventBridge({
 
 exports.main = async function(event: DynamoDBStreamEvent, context: Context) : Promise<any> {
     const result = await client.putEvents({
-        Entries: [ 
+        Entries: [
             {
               Source: 'dynamodb.stream.lambda',
               EventBusName: 'cdk-eventbridge-test',
