@@ -15,7 +15,7 @@ exports.main = async function(event: APIGatewayProxyEvent, context: Context): Pr
 
         if (method === "GET") {
 
-            await db.put({
+            const result = await db.put({
                 TableName: 'cdk-dynamo-test',
                 Item: {
                     id: context.awsRequestId,
@@ -29,8 +29,9 @@ exports.main = async function(event: APIGatewayProxyEvent, context: Context): Pr
                 body: JSON.stringify({
                     message : 'Working fine!',
                     context: context,
-                    event: event
-                },
+                    event: event,
+                    result: result
+                })
             }
         }
 
