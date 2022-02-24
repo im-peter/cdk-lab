@@ -30,9 +30,9 @@ jobs:
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
 
-      - name: install (prod dependencies), build and test
+      - name: install, build and test
         run: |
-          npm ci
+          npm install
           npm run build
           npm run test
 
@@ -44,4 +44,5 @@ jobs:
           CDK_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
           CDK_DEFAULT_ACCOUNT: ${{ secrets.CDK_DEFAULT_ACCOUNT }}
         run: |
+          echo $CDK_DEFAULT_ACCOUNT
           npx cdk deploy --require-approval never "*"
