@@ -9,7 +9,7 @@ import * as dynamodb from 'aws-cdk-lib/aws-dynamodb'
 import * as eventbus from 'aws-cdk-lib/aws-events'
 import * as targets from 'aws-cdk-lib/aws-events-targets'
 import * as source from 'aws-cdk-lib/aws-lambda-event-sources'
-import * as cdk from 'aws-cdk-lib/core'
+import * as cdk from 'aws-cdk-lib'
 
 export class CdkStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {

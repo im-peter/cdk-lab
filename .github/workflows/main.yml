@@ -44,5 +44,4 @@ jobs:
           CDK_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
           CDK_DEFAULT_ACCOUNT: ${{ secrets.CDK_DEFAULT_ACCOUNT }}
         run: |
-          echo {$CDK_DEFAULT_ACCOUNT}
           npx cdk deploy --require-approval never
