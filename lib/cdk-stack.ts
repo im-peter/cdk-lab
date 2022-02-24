@@ -20,13 +20,13 @@ export class CdkStack extends Stack {
     //   resources: ['arn:aws:s3:::*'],
     // })
 
-    const broker = new eventbus.EventBus(this, 'cdk-eventbridge-test', {
+    const bus = new eventbus.EventBus(this, 'cdk-eventbridge-test', {
       eventBusName: 'cdk-eventbridge-test'
     })
     const busRule = new eventbus.Rule(this, 'cdk-eventbridge-rule-test', {
       ruleName: 'cdk-eventbridge-test',
       description: 'Rule matching dynamoDB events',
-      eventBus: broker,
+      eventBus: bus,
 
       eventPattern: {
         detailType: ['Object State Change'],
@@ -67,6 +67,7 @@ export class CdkStack extends Stack {
       bisectBatchOnError: false,
       retryAttempts: 0
     }))
+    bus.grantPutEventsTo(secondLambda)
 
     const thirdLambda = new lambda.Function(this, 'cdk-reactor-test', {
       runtime: lambda.Runtime.NODEJS_14_X,

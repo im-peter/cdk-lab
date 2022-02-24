@@ -30,7 +30,7 @@ exports.main = async function(event: APIGatewayProxyEvent, context: Context): Pr
                     message : 'Working fine!',
                     context: context,
                     event: event
-                }),
+                },
             }
         }
 
@@ -44,11 +44,13 @@ exports.main = async function(event: APIGatewayProxyEvent, context: Context): Pr
             })
         }
     } catch (error) {
-        const message = JSON.stringify(error, null, 2)
         return {
             statusCode: 400,
             headers: {},
-            body: message
+            body: JSON.stringify({
+                message: error,
+                event: event
+            })
         }
     }
 }
