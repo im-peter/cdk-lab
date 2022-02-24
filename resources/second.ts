@@ -25,12 +25,12 @@ exports.main = async function(event: DynamoDBStreamEvent, context: Context) : Pr
         ]
     }).promise()
 
-    const body = JSON.stringify({
+    const body = {
         Title : 'Event from Dynamo-stream',
         context: context,
         event: event,
         eventBridgeResult: result
-    }, null, 4)
+    }
 
     console.info(body)
 

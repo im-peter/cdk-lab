@@ -18,6 +18,7 @@ exports.main = async function(event: APIGatewayProxyEvent, context: Context): Pr
             await db.put({
                 TableName: 'cdk-dynamo-test',
                 Item: {
+                    id: context.awsRequestId,
                     info: 'Does this get through to the other side?'
                 }
             }).promise()
@@ -47,9 +48,7 @@ exports.main = async function(event: APIGatewayProxyEvent, context: Context): Pr
         return {
             statusCode: 400,
             headers: {},
-            body: JSON.stringify({
-                message,
-            })
+            body: message
         }
     }
 }
